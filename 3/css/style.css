@@ -1,0 +1,65 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#nav-toggle {
+  display: none;
+}
+.menu {
+  cursor: pointer;
+}
+
+.hamburger {
+  width: 80px;
+  position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  height: 7px;
+  background-color: #151515;
+  display: inline-block;
+  transition: all 0.5s cubic-bezier(0.5, -0.05, 0.6, 0.53);
+  border-radius: 50px;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  width: 40px;
+  position: absolute;
+}
+
+.hamburger::before {
+  transform: translatey(-20px);
+  transform-origin: right;
+}
+.hamburger::after {
+  transform: translatey(20px);
+  right: 0;
+  transform-origin: left;
+}
+
+#nav-toggle:checked + label .hamburger::before {
+  transform: translate(0) rotate(450deg);
+}
+
+#nav-toggle:checked + label .hamburger::after {
+  transform: translate(0) rotate(450deg);
+}
+
+#nav-toggle:checked + label .hamburger {
+  transform: rotate(45deg);
+}

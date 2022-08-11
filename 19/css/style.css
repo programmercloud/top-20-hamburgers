@@ -1,0 +1,91 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: teal;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
+}
+
+/* Cursor Pointer for Label & Menu Size */
+.menu-button {
+  cursor: pointer;
+  align-self: center;
+  font-size: 100px;
+  z-index: 999;
+}
+
+/* Hide the Checkbox */
+.menu-input {
+  position: absolute;
+  opacity: 0;
+}
+
+/*
+	 Base menu button
+	 styles and transitions
+*/
+.menu-button > span,
+.menu-button > span::before,
+.menu-button > span::after {
+  content: "";
+  background-color: #ffffff;
+  border-radius: 1.5625em;
+  width: 2.5em;
+  height: 0.3em;
+  display: block;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0s ease-in-out 0.2s, top 0.1s ease-in-out 0.25s,
+    transform 0.1s ease-in-out 0.1s;
+  overflow: visible;
+}
+
+/* To increase size of label */
+.menu-button > span {
+  margin: 1.1em 0;
+  background-color: #441b0f;
+}
+
+/* Positioning top bar */
+.menu-button > span::before {
+  top: -0.6em;
+  background-color: tan;
+}
+
+/* Positioning bottom bar */
+.menu-button > span::after {
+  top: 0.3em;
+  background-color: tan;
+}
+
+/*
+	 Transition times for
+	 when checked
+*/
+#menu-button:checked + .menu-button > span,
+#menu-button:checked + .menu-button > span::before,
+#menu-button:checked + .menu-button > span::after {
+  transition: background-color 0s linear 0.1s, top 0.1s linear 0s,
+    transform 0.1s linear 0.1s;
+}
+
+/* Styles when checked */
+#menu-button:checked + .menu-button > span {
+  background-color: transparent;
+}
+#menu-button:checked + .menu-button > span::before {
+  top: 0rem;
+  transform: rotate(45deg);
+  background-color: white;
+}
+#menu-button:checked + .menu-button > span::after {
+  top: -0.3em;
+  transform: rotate(-45deg);
+  background-color: white;
+}

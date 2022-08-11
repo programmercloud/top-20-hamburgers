@@ -1,0 +1,42 @@
+#icon,
+#icon::before,
+#icon::after {
+  transition: 0.2s transform ease-out;
+}
+#icon::before,
+#icon::after {
+  content: "";
+  display: block;
+  transform-origin: center left;
+  background: #8a98ff;
+  width: 50px;
+  height: 6px;
+  border-radius: 10px;
+}
+#icon::before {
+  margin: 10px 0 14px;
+}
+#icon::after {
+  margin: 0 0 10px;
+}
+#clickedIcon:checked + label > div > #icon::before {
+  transform: translateY(-8px) rotate(45deg);
+}
+#clickedIcon:checked + label > div > #icon::after {
+  transform: translateY(8px) rotate(-45deg);
+}
+#clickedIcon:checked + label > div > #icon {
+  transform: translateX(7px);
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: #fff18b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

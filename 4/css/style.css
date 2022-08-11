@@ -1,0 +1,56 @@
+.toggle__third,
+.toggle__first,
+.toggle__second {
+  display: block;
+  background: #3fd7be;
+  width: 60px;
+  height: 6px;
+  border-radius: 3px;
+  transition: all 0.7s cubic-bezier(0.81, -0.31, 0.37, 1.32);
+}
+
+.toggle__second,
+.toggle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body {
+  background-color: #132a9b;
+}
+
+.toggle {
+  display: block;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+}
+.toggle:hover .toggle__second {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.toggle__first {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 30px;
+  transform-origin: left center;
+}
+.toggle:hover .toggle__first {
+  left: 8px;
+  top: 5px;
+  transform: rotate(45deg);
+}
+.toggle__third {
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+  width: 30px;
+  transform-origin: right center;
+}
+.toggle:hover .toggle__third {
+  right: 8px;
+  bottom: 5px;
+  transform: rotate(45deg);
+}

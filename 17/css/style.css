@@ -1,0 +1,54 @@
+* {
+  transition: 0.2s all;
+}
+
+body {
+  background: #339999;
+}
+
+.sq {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  margin-top: 0px;
+}
+
+.myLabel {
+  cursor: pointer;
+}
+
+.line {
+  width: 200px;
+  height: 30px;
+  background: #fff;
+  margin-bottom: 30px;
+  border-radius: 50px;
+  border-radius: 50px;
+  background: #fff;
+}
+
+#l1 {
+  transform-origin: center;
+}
+
+input {
+  display: none;
+}
+
+#l3 {
+  transform-origin: center;
+}
+
+#myCheck:checked ~ #l1 {
+  transform: rotate(-45deg);
+}
+
+#myCheck:checked ~ #l2 {
+  transform: translatex(60px);
+  width: 300px;
+}
+
+#myCheck:checked ~ #l3 {
+  transform: rotate(45deg);
+}

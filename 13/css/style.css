@@ -1,0 +1,49 @@
+body {
+  background: #1f2122;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+}
+.hamburger:focus {
+  pointer-events: none;
+}
+
+.hamburger__item {
+  width: 2rem;
+  height: 0.25rem;
+  overflow: hidden;
+  background: #6c63ff;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.hamburger:focus .hamburger__item:first-child {
+  transform: rotate(45deg);
+}
+
+.hamburger:focus .hamburger__item:nth-child(2) {
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+.hamburger:focus .hamburger__item:last-child {
+  transform: rotate(-45deg);
+}

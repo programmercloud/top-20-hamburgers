@@ -1,0 +1,77 @@
+body {
+  background-color: #3544ff;
+  transition: background 0.3s linear 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hamburger:hover .line {
+  -webkit-animation: down 0.2s ease-in-out, up 0.2s ease-in-out 0.2s;
+  animation: down 0.2s ease-in-out, up 0.2s ease-in-out 0.2s;
+  transform: rotate(45deg);
+  top: 35%;
+  transition: transform 0.2s ease-in-out 0.2s;
+}
+
+.hamburger:hover .line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.hamburger .line {
+  transition: transform 0.2s ease-in-out, top 0.2s ease-in-out 0.2s;
+}
+
+.hamburger {
+  width: 120px;
+  height: 80px;
+  position: relative;
+  cursor: pointer;
+}
+
+.line {
+  background: #fff;
+  height: 15%;
+  width: 100%;
+  border-radius: 30px;
+  position: absolute;
+}
+.line:nth-child(1) {
+  top: 0%;
+}
+.line:nth-child(2) {
+  top: 35%;
+}
+.line:nth-child(3) {
+  top: 70%;
+}
+
+@-webkit-keyframes down {
+  100% {
+    top: 75%;
+  }
+}
+
+@keyframes down {
+  100% {
+    top: 75%;
+  }
+}
+@-webkit-keyframes up {
+  0% {
+    top: 75%;
+  }
+  100% {
+    top: 35%;
+  }
+}
+@keyframes up {
+  0% {
+    top: 75%;
+  }
+  100% {
+    top: 35%;
+  }
+}

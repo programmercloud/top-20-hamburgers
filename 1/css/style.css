@@ -1,0 +1,105 @@
+:root {
+  font-size: calc(10px + 1vmin);
+  --primary: hsl(260, 100%, 60%);
+  --softGrey: #9a97a8;
+  --bounce: 0.2s cubic-bezier(0.3, 0.3, 0.3, 1);
+  --ease: 0.12s cubic-bezier(0.3, 0.3, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  color: var(--softGrey);
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0.001;
+}
+
+label {
+  --weight: 10%;
+  --size: 7em;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--size);
+  height: var(--size);
+  cursor: pointer;
+}
+label circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: calc(var(--weight) * 0.6);
+  stroke-dasharray: 284;
+  stroke-dashoffset: 284;
+  stroke-linecap: round;
+  transition: 0.4s ease;
+}
+label .hamburger {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 63%;
+  height: 63%;
+}
+label .hamburger::before,
+label .hamburger .center,
+label .hamburger::after {
+  --tx: 0;
+  --rt: 0deg;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: var(--weight);
+  border-radius: 0.3em;
+  background: var(--primary);
+  transform-origin: right;
+  transition: var(--bounce) 0.1s;
+}
+label .hamburger .center {
+  right: 0;
+  transition: var(--bounce), width var(--ease);
+  transition-delay: 0.3s;
+}
+label .hamburger::before {
+  top: 0;
+  transform: translate(var(--tx), 100%) rotate(var(--rt));
+}
+label .hamburger::after {
+  bottom: 0;
+  transform: translate(var(--tx), -100%) rotate(var(--rt));
+}
+
+#toggle:checked ~ label circle {
+  stroke-dashoffset: 0;
+  transition-delay: 0.1s;
+}
+#toggle:checked ~ label .hamburger::before,
+#toggle:checked ~ label .hamburger::after {
+  --tx: -15%;
+  --rt: 45deg;
+  transition: var(--bounce) 0.1s;
+}
+#toggle:checked ~ label .hamburger::before {
+  --ty: 15%;
+  --rt: -45deg;
+}
+#toggle:checked ~ label .hamburger .center {
+  width: 0;
+  right: calc(var(--size) * -0.16);
+  transition: width var(--ease), right var(--bounce);
+}
